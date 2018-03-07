@@ -1,7 +1,7 @@
 {
   "name": "vue-comment-grid",
   "description": "Vue.js comment system built with CSS Grid and Firebase REST API.",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "author": "Tugay Yaldız <tugay_yaldiz@hotmail.com>",
   "license": "MIT",
   "private": false,

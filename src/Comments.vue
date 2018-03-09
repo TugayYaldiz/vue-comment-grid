@@ -521,6 +521,7 @@
     -webkit-touch-callout: none;
     -webkit-text-size-adjust: 100%;
     -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
   .comments>>>.comments {
     overflow-x: auto;
@@ -557,6 +558,7 @@
     grid-template-columns: 1fr 0.001fr;
     font-size: 14px;
     line-height: 14px;
+    margin-top: 2px;
     font-weight: 700;
     color: rgb(6, 177, 183);
     word-break: break-word;
@@ -608,7 +610,6 @@
     overflow: auto;
   }
   .comments>>>.commentBox > textarea {
-    height: auto;
     font-family: "Roboto", sans-serif;
     color: #2a2e2e;
     justify-self: stretch;

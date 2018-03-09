@@ -294,6 +294,7 @@
         this.limit += parseInt(this.initialMessageLimit);
       },
       resize(event, from) {
+        event.target.style.height = "auto";
         event.target.style.height = event.target.scrollHeight + "px";
         if (from) {
           if (
@@ -496,7 +497,10 @@
               .then(res => {
                 this.clearAlert();
                 this.filteredComment = this.filterNewUpdate;
-                this.updateMessage = "";
+                this.afterUpdate();
+                setTimeout(() => {
+                  this.updateMessage = "";
+                }, 3);
                 this.beforeUpdate = false;
               })
               .catch(err => {
@@ -523,7 +527,10 @@
               .then(res => {
                 this.clearAlert();
                 this.filteredComment = this.filterNewUpdate;
-                this.updateMessage = "";
+                this.afterUpdate();
+                setTimeout(() => {
+                  this.updateMessage = "";
+                }, 3);
                 this.beforeUpdate = false;
               })
               .catch(err => {
@@ -612,6 +619,19 @@
         this.alertMessage = "";
         this.alertClass = "";
         this.alert = false;
+      },
+      afterUpdate() {
+        if (this.filterNewUpdateLineCount > +this.maxLineLimit) {
+          this.filteredComment = "";
+          let splt = this.updateMessage.split("\n");
+          for (let i = 0; i < splt.length; i++) {
+            if (i < +this.maxLineLimit) {
+              this.filteredComment += splt[i] + "\n";
+            } else {
+              this.filteredComment += splt[i] + " ";
+            }
+          }
+        }
       }
     },
     computed: {
@@ -832,6 +852,7 @@
     -webkit-touch-callout: none;
     -webkit-text-size-adjust: 100%;
     -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
   .comments>>>.wrapper {
     display: grid;

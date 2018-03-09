@@ -1,6 +1,5 @@
 # comment-grid
-
-> Vue.js comment system build with CSS Grid and Firebase REST API.
+> Vue.js comment system built with CSS Grid and Firebase REST API + Authentication.
 
 ## Build Setup
 

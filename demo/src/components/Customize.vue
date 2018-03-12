@@ -11,21 +11,21 @@
         <span class="custom">Base url of your firebase app.</span>
         <span class="reminder">
           <span class="line"></span><span class="dot">•</span><span class="line"></span>
-          <span class="reminderText">! Remember dont add " / " to end of your firebase url. See <a class="link" href="#">docs.</a></span>
+          <span class="reminderText">! Remember dont add " / " to end of your firebase url. See <a target="_blank" class="link" href="https://github.com/TugayYaldiz/vue-comment-grid/blob/master/docs/get-base-url-api-key.md">docs.</a></span>
         </span>
       </div>
       <div class="col colText" id="apiKey" v-if="showaApiKeyPicker" key="showaApiKeyPicker">
         <span class="custom">API key of your Firebase app.</span>
         <span class="reminder">
           <span class="line"></span><span class="dot">•</span><span class="line"></span>
-          <span class="reminderText"> You can find firebase API key in web setup under authentication menu from Firebase console. See <a class="link" href="#">docs.</a></span>
+          <span class="reminderText"> You can find firebase API key in web setup under authentication menu from Firebase console. See <a target="_blank" class="link" href="https://github.com/TugayYaldiz/vue-comment-grid/blob/master/docs/get-base-url-api-key.md">docs.</a></span>
         </span>
       </div>
       <div class="col colText" id="nodeName" v-if="showNodeNamePicker" key="showNodeNamePicker">
         <span class="custom">The node name you created in firebase.</span>
         <span class="reminder">
           <span class="line"></span><span class="dot">•</span><span class="line"></span>
-          <span class="reminderText">See <a class="link" href="#">docs.</a></span>
+          <span class="reminderText">See <a target="_blank" class="link" href="https://github.com/TugayYaldiz/vue-comment-grid/blob/master/docs/creating-database-node-name.md">docs.</a></span>
         </span>
       </div>
       <div class="col colText" id="maxUserNameLength" v-if="showMaxUserNameLengthPicker" key="showMaxUserNameLengthPicker">
@@ -33,7 +33,7 @@
         <input v-model.number="maxUserLen" type="number" step="1" ref="maxUserLen"/>
         <span class="reminder">
           <span class="line"></span><span class="dot">•</span><span class="line"></span>
-          <span class="reminderText">! Remember if you change this value then you need to change values from firebase rules too. See <a class="link" href="#">docs.</a></span>
+          <span class="reminderText">! Remember if you change this value then you need to change values from firebase rules too. See <a target="_blank" class="link" href="https://github.com/TugayYaldiz/vue-comment-grid/blob/master/docs/updating-name-or-comment-length.md">docs.</a></span>
         </span>
       </div>
       <div class="col colText" id="maxCommentLength" v-if="showaMaxCommentLengthPicker" key="showaMaxCommentLengthPicker">
@@ -41,7 +41,7 @@
         <input v-model.number="maxCommentLen" type="number" step="1" ref="maxCommentLen"/>
         <span class="reminder">
           <span class="line"></span><span class="dot">•</span><span class="line"></span>
-          <span class="reminderText">! Remember if you change this value then you need to change values from firebase rules too. See <a class="link" href="#">docs.</a></span>
+          <span class="reminderText">! Remember if you change this value then you need to change values from firebase rules too. See <a target="_blank" class="link" href="https://github.com/TugayYaldiz/vue-comment-grid/blob/master/docs/updating-name-or-comment-length.md">docs.</a></span>
         </span>
       </div>
       <div class="col colText" id="initialMessageLimit" v-if="showInitialMessageLimitPicker" key="showInitialMessageLimitPicker">

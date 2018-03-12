@@ -146,19 +146,9 @@
             returnSecureToken: true
           })
             .then(res => {
-              const data = [
-                res.data.idToken,
-                res.data.localId,
-                this.filterNewUserName,
-                res.data.expiresIn
-              ];
-              this.signUser(data);
-              this.setLocalStorageItems(
-                res.data.idToken,
-                res.data.localId,
-                res.data.expiresIn,
-                this.filterNewUserName
-              );
+              this.idTokenD = res.data.idToken;
+              this.userIdD = res.data.localId;
+              this.expiresInD = res.data.expiresIn;              
               axios
                 .put(
                   this.baseURL +
@@ -169,10 +159,24 @@
                   {
                     name: this.filterNewUserName,
                     email: this.newUserEmail,
-                    user_id: res.data.localId
+                    user_id: this.userIdD
                   }
                 )
                 .then(res => {
+                  const data = [
+                    this.idTokenD,
+                    this.userIdD,
+                    this.filterNewUserName,
+                    this.expiresInD,
+                    null
+                  ];
+                  this.signUser(data);
+                  this.setLocalStorageItems(
+                    this.idTokenD,
+                    this.userIdD,
+                    this.expiresInD,
+                    this.filterNewUserName
+                  );
                   this.clearAlert();
                   this.clearSignPanel();
                 })

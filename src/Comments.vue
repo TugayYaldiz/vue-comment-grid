@@ -224,9 +224,10 @@
         this.idToken = data[0];
         this.userId = data[1];
         this.userName = data[2];
+        this.expiresIn = data[3]
         this.logOutTimer = setTimeout(() => {
           this.clearAuth();
-        }, data[3] * 1000);
+        }, this.expiresIn * 1000);
         this.isAdmin = data[4];
         this.auth = true;
         this.showSignPanel = false;

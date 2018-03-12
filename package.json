@@ -1,9 +1,19 @@
 {
   "name": "vue-comment-grid",
-  "description": "Vue.js comment system built with CSS Grid and Firebase REST API + Authentication.",
-  "version": "1.0.4",
+  "description": "💬 Vue.js comment system component that built with CSS Grid and Firebase REST API + Authentication.",
+  "version": "1.0.5",
   "author": "Tugay Yaldız <tugay_yaldiz@hotmail.com>",
   "license": "MIT",
+  "keywords": [
+    "vue",
+    "vue.js",
+    "css grid",
+    "grid",
+    "firebase",
+    "firebase rest api",
+    "authentication",
+    "comment"
+  ],
   "private": false,
   "scripts": {
     "build": "cross-env NODE_ENV=production webpack --progress --hide-modules"

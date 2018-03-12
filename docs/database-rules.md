@@ -37,8 +37,7 @@ Just copy and paste this to your database rules section.
                             newData.val().length <= 30 &&
                             !newData.val().matches(/^ /) &&
                             !newData.val().matches(/ +$/) &&
-                            !newData.val().matches(/ {2,}+/) &&
-                            !newData.val().matches(/\\n+/)"
+                            !newData.val().matches(/ {2,}+/)"
              },  
              "comment": {
                ".validate": "newData.isString() &&
@@ -116,8 +115,7 @@ Just copy and paste this to your database rules section.
                               newData.val().length <= 30 &&
                               !newData.val().matches(/^ /) &&
                               !newData.val().matches(/ +$/) &&
-                              !newData.val().matches(/ {2,}+/) &&
-                              !newData.val().matches(/\\n+/)"
+                              !newData.val().matches(/ {2,}+/)"
                 },  
                "comment": {
                  ".validate": "newData.isString() &&
@@ -160,13 +158,12 @@ Just copy and paste this to your database rules section.
                         newData.val().length > 0 &&
                         newData.val().length <= 30 && 
                         !newData.val().matches(/^ /) &&
-                        !newData.val().matches(/ {2,}+/) &&
-                        !newData.val().matches(/\\n+/)"
+                        !newData.val().matches(/ {2,}+/)"
         },
         "email": {
           ".validate": "newData.isString() && 
                         newData.val().matches(/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\\.[A-Z]{2,4}$/i) && 
-                        newData.val().length > 0 "
+                        newData.val().length > 0"
         },
         "user_id": {
           ".validate": "newData.isString() &&

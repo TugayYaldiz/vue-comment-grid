@@ -44,9 +44,7 @@ Just copy and paste this to your database rules section.
                              newData.val().length > 0 &&
                              newData.val().length <= 1000 &&
                              !newData.val().matches(/ {30,}+/) &&
-                             !newData.val().matches(/ +$/) &&
-                             !newData.val().matches(/^\\n/) &&
-                             !newData.val().contains('\\n\\n\\n')"
+                             !newData.val().matches(/ +$/)"
              },
              "timestamp": { ".validate": "newData.isString() && 
                                           newData.val().length > 0 && 
@@ -122,9 +120,7 @@ Just copy and paste this to your database rules section.
                                newData.val().length > 0 &&
                                newData.val().length <= 1000 &&
                                !newData.val().matches(/ {30,}+/) &&
-                               !newData.val().matches(/ +$/) &&
-                               !newData.val().matches(/^\\n/) &&
-                               !newData.val().contains('\\n\\n\\n')"
+                               !newData.val().matches(/ +$/)"
             	},
               "timestamp": { ".validate": "newData.isString() && 
                                            newData.val().length > 0 && 
@@ -178,7 +174,7 @@ Just copy and paste this to your database rules section.
 ```
 ## Changing Name or Comment Length Props
 If you change default name length prop value you need to change all 
-```json
+```
     "name": {
       ...
       newData.val().length <= 30 && --> this values wherever you see change it you want

@@ -188,11 +188,11 @@ If you change default name length prop value you need to change all
       ... 
     }
 ``` 
-fields too. The same goes for comment length. See it [here](./updating-name-or-comment-length.md) in detail.
+fields too. The same goes for comment length. See it [here](https://github.com/TugayYaldiz/vue-comment-grid/blob/master/docs/updating-name-or-comment-length.md) in detail.
 
 ## How do you change the rules?
 
-If you don't know how to change database rules see detailed  [here.](./database-rules-tutorial.md)
+If you don't know how to change database rules see detailed  [here.](https://github.com/TugayYaldiz/vue-comment-grid/blob/master/docs/database-rules-tutorial.md)
 
 ---
-[Previous Step](./creating-database-node-name.md) • [Next Step](./giving-yourself-admin.md)
+[Previous Step](https://github.com/TugayYaldiz/vue-comment-grid/blob/master/docs/creating-database-node-name.md) • [Next Step](https://github.com/TugayYaldiz/vue-comment-grid/blob/master/docs/giving-yourself-admin.md)

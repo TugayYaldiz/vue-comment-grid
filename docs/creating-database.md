@@ -6,9 +6,9 @@
 
 2. Add project
 
-![Add project](./img/creating-firebase-project/add-project.png?raw=true)
+![Add project](https://github.com/TugayYaldiz/vue-comment-grid/blob/master/docs/img/creating-firebase-project/add-project.png?raw=true)
 
-![Add project](./img/creating-firebase-project/add-project2.png?raw=true)
+![Add project](https://github.com/TugayYaldiz/vue-comment-grid/blob/master/docs/img/creating-firebase-project/add-project2.png?raw=true)
 
 ---
-[Next Step](./set-sign-methods.md)
+[Next Step](https://github.com/TugayYaldiz/vue-comment-grid/blob/master/docs/set-sign-methods.md)

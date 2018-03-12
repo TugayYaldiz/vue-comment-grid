@@ -25,7 +25,7 @@
 
 💬 Vue.js Comment Grid and [Demo](https://tugayyaldiz.github.io/vue-comment-grid) built with full CSS Grid and Firebase REST API + Authentication.
 
-Basically you can just create [Firebase Project](./docs/creating-database.md) and pass [database URL](./docs/get-base-url-api-key.md), [API Key](./docs/get-base-url-api-key.md) and [node name](./docs/creating-database-node-name.md) you created in database as component props and set database rules to [this.](./docs/database-rules.md) Thats all.
+Basically you can just create [Firebase Project](https://github.com/TugayYaldiz/vue-comment-grid/blob/master/docs/creating-database.md) and pass [database URL](https://github.com/TugayYaldiz/vue-comment-grid/blob/master/docs/get-base-url-api-key.md), [API Key](https://github.com/TugayYaldiz/vue-comment-grid/blob/master/docs/get-base-url-api-key.md) and [node name](https://github.com/TugayYaldiz/vue-comment-grid/blob/master/docs/creating-database-node-name.md) you created in database as component props and set database rules to [this.](https://github.com/TugayYaldiz/vue-comment-grid/blob/master/docs/database-rules.md) Thats all.
 
 ## Installation
 
@@ -53,13 +53,13 @@ Believe me, i wanted zero config usage for you but for **security reasons** some
 
 Create new project in firebase console.
 
-If you don't know how to create new project see detailed [here.](./docs/creating-database.md) 
+If you don't know how to create new project see detailed [here.](https://github.com/TugayYaldiz/vue-comment-grid/blob/master/docs/creating-database.md) 
 
 ### Setting Up Sign-In Method
 
 Enable Email/Password method under Firebase Authentication menu. 
 
-If you don't know how to enable Email/Password sign-in method see detailed [here.](./docs/set-sign-methods.md) 
+If you don't know how to enable Email/Password sign-in method see detailed [here.](https://github.com/TugayYaldiz/vue-comment-grid/blob/master/docs/set-sign-methods.md) 
 
 ### Getting Base URL and API Key
 
@@ -67,7 +67,7 @@ Get databaseURL and apiKey from Firebase.
 
 You can find Firebase databaseURL and apiKey in web setup under authentication menu from Firebase console.
 
-If you don't know how to get there see detailed [here.](./docs/get-base-url-api-key.md) 
+If you don't know how to get there see detailed [here.](https://github.com/TugayYaldiz/vue-comment-grid/blob/master/docs/get-base-url-api-key.md) 
 
 ### Creating Database Node Name
 
@@ -77,13 +77,13 @@ If you adding your first node name add `Name: commentsGrid/nodeNameYouWant/activ
 
 For other node names that you will create add `Name: nodeNameYouWant/active Value: true` under `commentsGrid` .
 
-If you don't know how to do this see detailed [here.](./docs/creating-database-node-name.md) 
+If you don't know how to do this see detailed [here.](https://github.com/TugayYaldiz/vue-comment-grid/blob/master/docs/creating-database-node-name.md) 
 
 ### Setting Up Database Rules
 
-Set Realtime Database Rules to [this.](./docs/database-rules.md)
+Set Realtime Database Rules to [this.](https://github.com/TugayYaldiz/vue-comment-grid/blob/master/docs/database-rules.md)
 
-If you don't know how to change database rules see detailed  [here.](./docs/database-rules-tutorial.md)
+If you don't know how to change database rules see detailed  [here.](https://github.com/TugayYaldiz/vue-comment-grid/blob/master/docs/database-rules-tutorial.md)
 
 ### Giving Yourself Admin Permission
 
@@ -93,11 +93,11 @@ First sign up as a normal user in the comment system then find yourself under `c
 
 If you want to give more people admin permission just add them  `admin: true` child too.
 
-If you don't know how to do this see detailed [here.](./docs/giving-yourself-admin.md)
+If you don't know how to do this see detailed [here.](https://github.com/TugayYaldiz/vue-comment-grid/blob/master/docs/giving-yourself-admin.md)
 
 ### Changing Name or Comment Length Props
 
-The default max user name length is "30" and default max comment length is "1000" character long. If you want change this values then you need to change values from Firebase Rules too. See detailed [here.](./docs/updating-name-or-comment-length.md)
+The default max user name length is "30" and default max comment length is "1000" character long. If you want change this values then you need to change values from Firebase Rules too. See detailed [here.](https://github.com/TugayYaldiz/vue-comment-grid/blob/master/docs/updating-name-or-comment-length.md)
 
 ## Usage
 
@@ -112,11 +112,11 @@ The above code is default required settings.
 
 ### Default settings with Dark Backgrounds
 
-![Default Dark Background](./docs/img/default_black.png?raw=true)
+![Default Dark Background](https://github.com/TugayYaldiz/vue-comment-grid/blob/master/docs/img/default_black.png?raw=true)
 
 ### Default settings with Light Backgrounds
 
-![Default White Background](./docs/img/default_white.png?raw=true)
+![Default White Background](https://github.com/TugayYaldiz/vue-comment-grid/blob/master/docs/img/default_white.png?raw=true)
 
 
 ## Props
@@ -126,8 +126,8 @@ The above code is default required settings.
 | baseURL    | String   | null      | databaseURL of your Firebase Project | True |
 | apiKey     | String   | null      | apiKey of your Firebase Project | True |
 | nodeName   | String   | null      | node name that you created in Firebase Realtime Database | True |
-| maxUserNameLength   | String   | "30"      | The name of the user must be below this value when sign-up. If you change this value then you need to change values from Firebase Rules too. See [docs.](./docs/updating-name-or-comment-length.md#changing-name-length) | Optional |
-| maxCommentLength   | String   | "1000"      | The character limit of comments. If you change this value then you need to change values from Firebase Rules too. See [docs.](./docs/updating-name-or-comment-length.md#changing-comment-length)| Optional |
+| maxUserNameLength   | String   | "30"      | The name of the user must be below this value when sign-up. If you change this value then you need to change values from Firebase Rules too. See [docs.](https://github.com/TugayYaldiz/vue-comment-grid/blob/master/docs/updating-name-or-comment-length.md#changing-name-length) | Optional |
+| maxCommentLength   | String   | "1000"      | The character limit of comments. If you change this value then you need to change values from Firebase Rules too. See [docs.](https://github.com/TugayYaldiz/vue-comment-grid/blob/master/docs/updating-name-or-comment-length.md#changing-comment-length)| Optional |
 | initialMessageLimit   | String   | "10"      | Sets maximum message limit to shown at first load. When 'Show more comment' is clicked, the number of comment impressions will increase by this number.| Optional |
 | maxLineLimit   | String   | "40"      | Sets line break limit. This is for prevent users from creating too many lines. Exceeded line breaks will be converted to spaces. Lines number are stored in database, so under this limit comments show directly without any operation.| Optional |
 | maxShowingDepth   | String   | "5"      | Sets maximum reply depth to shown. This is not a maximum reply depth limit. Just for showing and hiding. There is no limit for depth. | Optional |

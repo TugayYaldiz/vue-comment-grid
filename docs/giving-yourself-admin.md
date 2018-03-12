@@ -4,7 +4,7 @@ First sign up as a normal user in the comment system then find yourself under `c
 
 If you want to give more people admin permission just add them  `admin: true` child too.
 
-![Admin](./img/admin-perm/admin.gif?raw=true)
+![Admin](https://github.com/TugayYaldiz/vue-comment-grid/blob/master/docs/img/admin-perm/admin.gif?raw=true)
 
 ---
-[Previous Step](./database-rules.md) • [Next Step](./updating-name-or-comment-length.md)
+[Previous Step](https://github.com/TugayYaldiz/vue-comment-grid/blob/master/docs/database-rules.md) • [Next Step](https://github.com/TugayYaldiz/vue-comment-grid/blob/master/docs/updating-name-or-comment-length.md)

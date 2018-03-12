@@ -138,7 +138,7 @@ The above code is default required settings.
 
 ## Customizing
 
-If you want to customizing component props take a look at <u>here</u>.
+If you want to customizing component props take a look at [here.](https://tugayyaldiz.github.io/vue-comment-grid/#/customize)
 
 ## TODO
 

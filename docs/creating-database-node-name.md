@@ -1,4 +1,4 @@
-## 4. creating-database-node-name
+## 4. Creating Database Node Name
 
 After getting databaseURL and apiKey click `Database` on the left menu and choose `Realtime Database` .
 

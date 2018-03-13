@@ -5,6 +5,8 @@
 - [Introduction](#introduction)
 - [Installation](#installation)
   - [Downloading Plugin](#downloading-plugin)
+    - [Dependencies](#dependencies)
+    - [Include Plugin](#include-plugin)
   - [Creating Firebase Project](#creating-firebase-project)
   - [Setting Up Sign-In Method](#setting-up-sign-in-method)
   - [Getting Base URL and API Key](#getting-base-url-and-api-key)
@@ -34,6 +36,12 @@ Basically you can just create [Firebase Project](https://github.com/TugayYaldiz/
 ```bash
 npm install --save vue-comment-grid
 ```
+#### Dependencies
+
+- Axios - For HTTP requests.
+
+> If you already use Axios in your project then no dependencies at all. 🤗 
+#### Include Plugin
 
 Include plugin in your `main.js` file.
 

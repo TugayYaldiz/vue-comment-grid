@@ -27,7 +27,7 @@
 
 💬 Vue.js Comment Grid and [Demo](https://tugayyaldiz.github.io/vue-comment-grid) built with full CSS Grid and Firebase REST API + Authentication.
 
-Basically you can just create [Firebase Project](https://github.com/TugayYaldiz/vue-comment-grid/blob/master/docs/creating-database.md) and pass [database URL](https://github.com/TugayYaldiz/vue-comment-grid/blob/master/docs/get-base-url-api-key.md), [API Key](https://github.com/TugayYaldiz/vue-comment-grid/blob/master/docs/get-base-url-api-key.md) and [node name](https://github.com/TugayYaldiz/vue-comment-grid/blob/master/docs/creating-database-node-name.md) you created in database as component props and set database rules to [this.](https://github.com/TugayYaldiz/vue-comment-grid/blob/master/docs/database-rules.md) Thats all.
+Basically you can just create [Firebase Project](https://github.com/TugayYaldiz/vue-comment-grid/blob/master/docs/creating-database.md), [enable Email/Password sign-in method](https://github.com/TugayYaldiz/vue-comment-grid/blob/master/docs/set-sign-methods.md) and pass [database URL](https://github.com/TugayYaldiz/vue-comment-grid/blob/master/docs/get-base-url-api-key.md), [API Key](https://github.com/TugayYaldiz/vue-comment-grid/blob/master/docs/get-base-url-api-key.md) and [node name](https://github.com/TugayYaldiz/vue-comment-grid/blob/master/docs/creating-database-node-name.md) you created in database as component props and set database rules to [this.](https://github.com/TugayYaldiz/vue-comment-grid/blob/master/docs/database-rules.md) Thats all.
 
 ## Installation
 

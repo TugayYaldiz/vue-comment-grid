@@ -226,7 +226,8 @@
                   this.idTokenD,
                   this.userIdD,
                   this.expiresInD,
-                  res.data.name
+                  res.data.name,
+                  res.data.admin
                 );
                 this.clearAlert();
                 this.clearSignPanel();
@@ -282,13 +283,14 @@
         }
         this.clearAlert();
       },
-      setLocalStorageItems(token, userId, expDate, userName) {
+      setLocalStorageItems(token, userId, expDate, userName, admin) {
         const now = new Date();
         const expirationDate = new Date(now.getTime() + expDate * 1000);
         localStorage.setItem("commentToken", token);
         localStorage.setItem("commentUserId", userId);
         localStorage.setItem("commentExpirationDate", expirationDate);
         localStorage.setItem("commentUserName", userName);
+        localStorage.setItem("commentAdmin", admin);
       }
     },
     computed: {

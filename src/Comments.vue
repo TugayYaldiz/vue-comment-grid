@@ -217,14 +217,19 @@
         }
         const userId = localStorage.getItem("commentUserId");
         const userName = localStorage.getItem("commentUserName");
-        const data = [token, userId, userName, remainingTime];
-        this.signUser(data);
+        if (localStorage.getItem("commentAdmin") != "undefined") {
+          const data = [token, userId, userName, remainingTime, true];
+          this.signUser(data);
+        } else {
+          const data = [token, userId, userName, remainingTime];
+          this.signUser(data);
+        }
       },
       signUser(data) {
         this.idToken = data[0];
         this.userId = data[1];
         this.userName = data[2];
-        this.expiresIn = data[3]
+        this.expiresIn = data[3];
         this.logOutTimer = setTimeout(() => {
           this.clearAuth();
         }, this.expiresIn * 1000);
@@ -243,6 +248,7 @@
         localStorage.removeItem("commentUserId");
         localStorage.removeItem("commentExpirationDate");
         localStorage.removeItem("commentUserName");
+        localStorage.removeItem("commentAdmin");
       },
       updateLimit() {
         this.limit += parseInt(this.initialMessageLimit);
@@ -258,53 +264,57 @@
       },
       addComment() {
         if (this.auth) {
-          this.requestLoading = true;
-          let commentObj = {
-            name: this.filterUserName,
-            comment: this.filterNewComment,
-            user_id: this.userId,
-            timestamp: Date.now().toString(),
-            lineCount: this.filterNewCommentLineCount
-          };
-          axios
-            .post(
-              this.baseURL +
-                "/commentsGrid/" +
-                this.nodeName +
-                "/comments.json" +
-                "?auth=" +
-                this.idToken,
-              commentObj
-            )
-            .then(res => {
-              commentObj.id = res.data.name;
-              const repliedObj = { user_id: this.userId };
-              axios
-                .put(
-                  this.baseURL +
-                    "/commentsGrid/" +
-                    this.nodeName +
-                    "/replys/" +
-                    commentObj.id +
-                    ".json" +
-                    "?auth=" +
-                    this.idToken,
-                  repliedObj
-                )
-                .then(res => {
-                  commentObj.depth =
-                    "commentsGrid/" +
-                    this.nodeName +
-                    "/comments/" +
-                    commentObj.id;
-                  this.comments.splice(0, 0, commentObj);
-                  this.clearAlert();
-                  this.newComment = "";
-                  this.resize();
-                })
-                .catch(err => this.setAlert("Unauthorized!\n", "fail"));
-            })
-            .catch(err => this.setAlert("İnvalid comment!\n", "fail"));
+          if (this.filterNewComment != 0) {
+            this.requestLoading = true;
+            let commentObj = {
+              name: this.filterUserName,
+              comment: this.filterNewComment,
+              user_id: this.userId,
+              timestamp: Date.now().toString(),
+              lineCount: this.filterNewCommentLineCount
+            };
+            axios
+              .post(
+                this.baseURL +
+                  "/commentsGrid/" +
+                  this.nodeName +
+                  "/comments.json" +
+                  "?auth=" +
+                  this.idToken,
+                commentObj
+              )
+              .then(res => {
+                commentObj.id = res.data.name;
+                const repliedObj = { user_id: this.userId };
+                axios
+                  .put(
+                    this.baseURL +
+                      "/commentsGrid/" +
+                      this.nodeName +
+                      "/replys/" +
+                      commentObj.id +
+                      ".json" +
+                      "?auth=" +
+                      this.idToken,
+                    repliedObj
+                  )
+                  .then(res => {
+                    commentObj.depth =
+                      "commentsGrid/" +
+                      this.nodeName +
+                      "/comments/" +
+                      commentObj.id;
+                    this.comments.splice(0, 0, commentObj);
+                    this.clearAlert();
+                    this.newComment = "";
+                    this.resize();
+                  })
+                  .catch(err => this.setAlert("Unauthorized!\n", "fail"));
+              })
+              .catch(err => this.setAlert("İnvalid comment!\n", "fail"));
+          } else {
+            this.setAlert("You can't send empty comment!\n", "fail");
+          }
         } else {
           this.showSignPanel = true;
         }

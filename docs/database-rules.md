@@ -177,7 +177,7 @@ If you change default name length prop value you need to change all
 ```
     "name": {
       ...
-      newData.val().length <= 30 && --> this values wherever you see change it you want
+      newData.val().length <= 30 && --> this values wherever you see change it
       ... 
     }
 ``` 

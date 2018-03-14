@@ -148,7 +148,10 @@
             .then(res => {
               this.idTokenD = res.data.idToken;
               this.userIdD = res.data.localId;
-              this.expiresInD = res.data.expiresIn;              
+              this.expiresInD = res.data.expiresIn;     
+              console.log(this.filterNewUserName);         
+              console.log(this.newUserEmail);         
+              console.log(this.userIdD);         
               axios
                 .put(
                   this.baseURL +
@@ -205,7 +208,7 @@
               .then(res => {
                 const data = [this.idTokenD, this.userIdD, res.data.name, this.expiresInD, res.data.admin]
                 this.signUser(data)
-                this.setLocalStorageItems(this.idTokenD, this.userIdD, this.expiresInD, res.data.name)
+                this.setLocalStorageItems(this.idTokenD, this.userIdD, this.expiresInD, res.data.name, res.data.admin)
                 this.clearAlert()
                 this.clearSignPanel()
               })
@@ -258,13 +261,14 @@
         }
         this.clearAlert();
       },
-      setLocalStorageItems(token, userId, expDate, userName) {
+      setLocalStorageItems(token, userId, expDate, userName, admin) {
         const now = new Date()
         const expirationDate = new Date(now.getTime() + expDate * 1000)
         localStorage.setItem('commentToken', token)
         localStorage.setItem('commentUserId', userId)
         localStorage.setItem('commentExpirationDate', expirationDate)
         localStorage.setItem('commentUserName', userName)
+        localStorage.setItem('commentAdmin', admin)
       }
     },
     computed: {

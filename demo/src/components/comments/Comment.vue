@@ -322,50 +322,54 @@
         })
       },
       reply() {
-        if(this.custom != 'false') {
+        if (this.custom != 'false') {
           this.setAlert('This for customization, if you want to comment please look at the Fullscreen demo.\n', 'fail')
           return
         }
         if (this.auth) {
-          this.requestLoading = true;
-          let replyObj = { name: this.filterUserName, comment: this.filterNewComment, user_id: this.userId, timestamp: Date.now().toString(), lineCount: this.filterNewCommentLineCount }
-          axios.post(this.baseURL + '/commentsGrid/' + this.nodeName + '/replys/' + this.id + '.json' + '?auth=' + this.idToken, replyObj)
-            .then(res => {
-              replyObj.id = res.data.name
-              const mods = this.mods
-              const key = this.nodeUserId
-              let obj = {}
-              obj[key] = true
-              for (let i = 0, len = mods.length; i < len; i++) {
-                for (let key in mods[i]) {
-                  let key2 = key
-                  obj[key2] = true
-                }
-              }
-              let repliedObj = { replied: false, user_id: this.userId, mods: obj }
-              axios.put(this.baseURL + '/commentsGrid/' + this.nodeName + '/replys/' + replyObj.id + '.json' + '?auth=' + this.idToken, repliedObj)
-                .then(res => {
-                  replyObj.depth = 'commentsGrid/' + this.nodeName + '/replys/' + this.id + '/' + replyObj.id
-                  this.replys.splice(0, 0, replyObj)
-                  this.replyMessage = ''
-                  this.$refs.addReply.style.height = 32 + 'px'
-                  this.beforeReply = !this.beforeReply
-                  if (!this.replied) {
-                    this.replied = true
-                    if (!this.showReplies) {
-                      this.showReplies = !this.showReplies
-                    }
+          if (this.filterNewComment.length != 0) {
+            this.requestLoading = true;
+            let replyObj = { name: this.filterUserName, comment: this.filterNewComment, user_id: this.userId, timestamp: Date.now().toString(), lineCount: this.filterNewCommentLineCount }
+            axios.post(this.baseURL + '/commentsGrid/' + this.nodeName + '/replys/' + this.id + '.json' + '?auth=' + this.idToken, replyObj)
+              .then(res => {
+                replyObj.id = res.data.name
+                const mods = this.mods
+                const key = this.nodeUserId
+                let obj = {}
+                obj[key] = true
+                for (let i = 0, len = mods.length; i < len; i++) {
+                  for (let key in mods[i]) {
+                    let key2 = key
+                    obj[key2] = true
                   }
-                  this.clearAlert();
-                })
-                .catch(err => this.setAlert('Unauthorized!\n', 'fail'))
-            })
-            .catch(err => {
-              this.setAlert('İnvalid comment or comment deleted!\n', 'fail')
-              setTimeout(() => {
-                this.$emit('delete-row');
-              }, 5000);
-            })
+                }
+                let repliedObj = { replied: false, user_id: this.userId, mods: obj }
+                axios.put(this.baseURL + '/commentsGrid/' + this.nodeName + '/replys/' + replyObj.id + '.json' + '?auth=' + this.idToken, repliedObj)
+                  .then(res => {
+                    replyObj.depth = 'commentsGrid/' + this.nodeName + '/replys/' + this.id + '/' + replyObj.id
+                    this.replys.splice(0, 0, replyObj)
+                    this.replyMessage = ''
+                    this.$refs.addReply.style.height = 32 + 'px'
+                    this.beforeReply = !this.beforeReply
+                    if (!this.replied) {
+                      this.replied = true
+                      if (!this.showReplies) {
+                        this.showReplies = !this.showReplies
+                      }
+                    }
+                    this.clearAlert();
+                  })
+                  .catch(err => this.setAlert('Unauthorized!\n', 'fail'))
+              })
+              .catch(err => {
+                this.setAlert('İnvalid comment or comment deleted!\n', 'fail')
+                setTimeout(() => {
+                  this.$emit('delete-row');
+                }, 5000);
+              })
+          } else {
+            this.setAlert('You can\'t send empty comment!\n', 'fail')
+          }
         } else {
           this.showSignPanel = true
         }
@@ -380,49 +384,57 @@
         })
       },
       update() {
-        if(this.custom != 'false') {
+        if (this.custom != 'false') {
           this.setAlert('This for customization, if you want to comment please look at the Fullscreen demo.\n', 'fail')
           return
         }
         if (this.auth) {
           this.requestLoading = true;
           if (!this.isAdmin) {
-            let replyObj = { name: this.filterUserName, comment: this.filterNewUpdate, user_id: this.userId, lineCount: this.filterNewUpdateLineCount }
-            console.log(this.depth);
-            axios.patch(this.baseURL + '/' + this.depth + '.json' + '?auth=' + this.idToken, replyObj)
-              .then(res => {
-                this.clearAlert()
-                this.filteredComment = this.filterNewUpdate
-                this.afterUpdate()
-                setTimeout(() => {
-                  this.updateMessage = ''
-                }, 3);
-                this.beforeUpdate = false;
-              })
-              .catch(err => {
-                this.setAlert('İnvalid comment or comment deleted!\n', 'fail')
-                setTimeout(() => {
-                  this.$emit('delete-row');
-                }, 5000);
-              })
+            if(this.filterNewUpdate.length!=0) {
+              let replyObj = { name: this.filterUserName, comment: this.filterNewUpdate, user_id: this.userId, lineCount: this.filterNewUpdateLineCount }
+              console.log(this.depth);
+              axios.patch(this.baseURL + '/' + this.depth + '.json' + '?auth=' + this.idToken, replyObj)
+                .then(res => {
+                  this.clearAlert()
+                  this.filteredComment = this.filterNewUpdate
+                  this.afterUpdate()
+                  setTimeout(() => {
+                    this.updateMessage = ''
+                  }, 3);
+                  this.beforeUpdate = false;
+                })
+                .catch(err => {
+                  this.setAlert('İnvalid comment or comment deleted!\n', 'fail')
+                  setTimeout(() => {
+                    this.$emit('delete-row');
+                  }, 5000);
+                })
+              } else {
+                this.setAlert('You can\'t send empty comment!\n', 'fail')
+              }
           } else {
-            let replyObj = { comment: this.filterNewUpdate, lineCount: this.filterNewUpdateLineCount }
-            axios.patch(this.baseURL + '/' + this.depth + '.json' + '?auth=' + this.idToken, replyObj)
-              .then(res => {
-                this.clearAlert()
-                this.filteredComment = this.filterNewUpdate
-                this.afterUpdate()
-                setTimeout(() => {
-                  this.updateMessage = ''
-                }, 3);
-                this.beforeUpdate = false;
-              })
-              .catch(err => {
-                this.setAlert('İnvalid comment or comment deleted!\n', 'fail')
-                setTimeout(() => {
-                  this.$emit('delete-row');
-                }, 5000);
-              })
+            if(this.filterNewUpdate.length!=0) {
+              let replyObj = { comment: this.filterNewUpdate, lineCount: this.filterNewUpdateLineCount }
+              axios.patch(this.baseURL + '/' + this.depth + '.json' + '?auth=' + this.idToken, replyObj)
+                .then(res => {
+                  this.clearAlert()
+                  this.filteredComment = this.filterNewUpdate
+                  this.afterUpdate()
+                  setTimeout(() => {
+                    this.updateMessage = ''
+                  }, 3);
+                  this.beforeUpdate = false;
+                })
+                .catch(err => {
+                  this.setAlert('İnvalid comment or comment deleted!\n', 'fail')
+                  setTimeout(() => {
+                    this.$emit('delete-row');
+                  }, 5000);
+                })
+            } else {
+              this.setAlert('You can\'t send empty comment!\n', 'fail')
+            }
           }
         } else {
           this.showSignPanel = true
@@ -441,7 +453,7 @@
         }, 5000);
       },
       deleteComment() {
-        if(this.custom != 'false') {
+        if (this.custom != 'false') {
           this.setAlert('This for customization, if you want to comment please look at the Fullscreen demo.\n', 'fail')
           return
         }
@@ -490,8 +502,8 @@
       },
       afterUpdate() {
         if (this.filterNewUpdateLineCount > +(this.maxLineLimit)) {
-        this.filteredComment =''
-        let splt = this.updateMessage.split("\n");
+          this.filteredComment = ''
+          let splt = this.updateMessage.split("\n");
           for (let i = 0; i < splt.length; i++) {
             if (i < +this.maxLineLimit) {
               this.filteredComment += splt[i] + "\n";
@@ -583,7 +595,7 @@
       },
       maxLineLimit() {// this is for demo
         if (this.lineCount > +(this.maxLineLimit) || this.lineCount != this.comment.split('\n').length) {
-          this.filteredComment=''
+          this.filteredComment = ''
           let splt = this.comment.split('\n');
           for (let i = 0; i < splt.length; i++) {
             if (i < +(this.maxLineLimit)) {
@@ -854,7 +866,7 @@
     border: 1px solid rgba(42, 94, 190, 0.9);
     background-color: rgba(42, 94, 190, 0.9);
     color: #fff;
-  }  
+  }
   .comments>>>.popUp-enter-active {
     animation: pop-up 0.2s ease-out forwards;
   }

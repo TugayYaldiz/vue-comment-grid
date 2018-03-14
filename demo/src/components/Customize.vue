@@ -678,6 +678,7 @@
     width: -webkit-max-content;
     width: -moz-max-content;
     width: max-content;
+    min-width: 345.27px;
     height: -webkit-max-content;
     height: -moz-max-content;
     height: max-content;

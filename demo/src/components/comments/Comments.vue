@@ -214,8 +214,13 @@
         }
         const userId = localStorage.getItem('commentUserId')
         const userName = localStorage.getItem('commentUserName')
-        const data = [token, userId, userName, remainingTime]
-        this.signUser(data);
+        if(localStorage.getItem('commentAdmin') != 'undefined'){
+          const data = [token, userId, userName, remainingTime, true]
+          this.signUser(data);
+        } else {
+          const data = [token, userId, userName, remainingTime]
+          this.signUser(data);
+        }
       },
       signUser(data) {
         this.idToken = data[0]
@@ -240,6 +245,7 @@
         localStorage.removeItem("commentUserId")
         localStorage.removeItem("commentExpirationDate")
         localStorage.removeItem("commentUserName")
+        localStorage.removeItem("commentAdmin")
       },
       updateLimit() {
         this.limit += parseInt(this.initialMessageLimit)
@@ -254,28 +260,32 @@
         }
       },
       addComment() {
-        if(this.custom != 'false') {
+        if (this.custom != 'false') {
           this.setAlert('This for customization, if you want to comment please look at the Fullscreen demo.\n', 'fail')
           return
         }
         if (this.auth) {
-          this.requestLoading = true;
-          let commentObj = { name: this.filterUserName, comment: this.filterNewComment, user_id: this.userId, timestamp: Date.now().toString(), lineCount: this.filterNewCommentLineCount }
-          axios.post(this.baseURL + '/commentsGrid/' + this.nodeName + '/comments.json' + '?auth=' + this.idToken, commentObj)
-            .then(res => {
-              commentObj.id = res.data.name
-              const repliedObj = { user_id: this.userId }
-              axios.put(this.baseURL + '/commentsGrid/' + this.nodeName + '/replys/' + commentObj.id + '.json' + '?auth=' + this.idToken, repliedObj)
-                .then(res => {
-                  commentObj.depth = 'commentsGrid/' + this.nodeName + '/comments/' + commentObj.id
-                  this.comments.splice(0, 0, commentObj)
-                  this.clearAlert()
-                  this.newComment = ''
-                  this.resize()
-                })
-                .catch(err => this.setAlert('Unauthorized!\n', 'fail'))
-            })
-            .catch(err => this.setAlert('İnvalid comment!\n', 'fail'))
+          if (this.filterNewComment.length!=0) {
+            this.requestLoading = true;
+            let commentObj = { name: this.filterUserName, comment: this.filterNewComment, user_id: this.userId, timestamp: Date.now().toString(), lineCount: this.filterNewCommentLineCount }
+            axios.post(this.baseURL + '/commentsGrid/' + this.nodeName + '/comments.json' + '?auth=' + this.idToken, commentObj)
+              .then(res => {
+                commentObj.id = res.data.name
+                const repliedObj = { user_id: this.userId }
+                axios.put(this.baseURL + '/commentsGrid/' + this.nodeName + '/replys/' + commentObj.id + '.json' + '?auth=' + this.idToken, repliedObj)
+                  .then(res => {
+                    commentObj.depth = 'commentsGrid/' + this.nodeName + '/comments/' + commentObj.id
+                    this.comments.splice(0, 0, commentObj)
+                    this.clearAlert()
+                    this.newComment = ''
+                    this.resize()
+                  })
+                  .catch(err => this.setAlert('Unauthorized!\n', 'fail'))
+              })
+              .catch(err => this.setAlert('İnvalid comment!\n', 'fail'))
+          } else {
+            this.setAlert('You can\'t send empty comment!\n', 'fail')
+          }
         } else {
           this.showSignPanel = true
         }
@@ -330,7 +340,7 @@
         })
       },
       initialMessageLimit() { // this is for demo
-        this.limit= parseInt(this.initialMessageLimit)
+        this.limit = parseInt(this.initialMessageLimit)
       }
     },
     components: {
@@ -357,7 +367,7 @@
 </script>
 
 <style scoped>
-  @import url('https://fonts.googleapis.com/css?family=Roboto:400,700');
+  @import url("https://fonts.googleapis.com/css?family=Roboto:400,700");
 
   .loader {
     display: grid;
@@ -433,7 +443,7 @@
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
-  .comments >>> .comments {
+  .comments>>>.comments {
     overflow-x: auto;
   }
   .comments > .innerWrapper {

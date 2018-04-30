@@ -51,7 +51,7 @@ import CommentGrid from 'vue-comment-grid'
 
 Vue.use(CommentGrid)
 ```
-**The following steps are important please read all.**
+️️⚠️ **The following steps are important please read all.**
 
 Most steps will only performing once. 
 

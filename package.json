@@ -1,7 +1,7 @@
 {
   "name": "vue-comment-grid",
   "description": "💬 Responsive Vue.js comment system plugin that built with CSS Grid and Firebase REST API + Authentication.",
-  "version": "1.0.11",
+  "version": "1.0.12",
   "author": "Tugay Yaldız <tugay_yaldiz@hotmail.com>",
   "license": "MIT",
   "keywords": [

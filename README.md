@@ -40,7 +40,7 @@ npm install --save vue-comment-grid
 
 - Axios - For HTTP requests.
 
-> If you already use Axios in your project then no dependencies at all. 🤗 
+> If you already use Axios in your project then no dependencies at all. 🤗
 #### Include Plugin
 
 Include plugin in your `main.js` file.
@@ -53,7 +53,7 @@ Vue.use(CommentGrid)
 ```
 ️️⚠️ **The following steps are important please read all.**
 
-Most steps will only performing once. 
+Most steps will only performing once.
 
 Believe me, i wanted zero config usage for you but for **security reasons** some steps need to be setting up manually by you.
 
@@ -61,31 +61,31 @@ Believe me, i wanted zero config usage for you but for **security reasons** some
 
 Create new project in firebase console.
 
-If you don't know how to create new project see detailed [here.](https://github.com/TugayYaldiz/vue-comment-grid/blob/master/docs/creating-database.md) 
+If you don't know how to create new project see detailed [here.](https://github.com/TugayYaldiz/vue-comment-grid/blob/master/docs/creating-database.md)
 
 ### Setting Up Sign-In Method
 
-Enable Email/Password method under Firebase Authentication menu. 
+Enable Email/Password method under Firebase Authentication menu.
 
-If you don't know how to enable Email/Password sign-in method see detailed [here.](https://github.com/TugayYaldiz/vue-comment-grid/blob/master/docs/set-sign-methods.md) 
+If you don't know how to enable Email/Password sign-in method see detailed [here.](https://github.com/TugayYaldiz/vue-comment-grid/blob/master/docs/set-sign-methods.md)
 
 ### Getting Base URL and API Key
 
-Get databaseURL and apiKey from Firebase. 
+Get databaseURL and apiKey from Firebase.
 
 You can find Firebase databaseURL and apiKey in web setup under authentication menu from Firebase console.
 
-If you don't know how to get there see detailed [here.](https://github.com/TugayYaldiz/vue-comment-grid/blob/master/docs/get-base-url-api-key.md) 
+If you don't know how to get there see detailed [here.](https://github.com/TugayYaldiz/vue-comment-grid/blob/master/docs/get-base-url-api-key.md)
 
 ### Creating Database Node Name
 
-For **security reasons** you need to create node names manually by yourself. Before passing new nodeName for different pages be sure you created that node name in database. 
+For **security reasons** you need to create node names manually by yourself. Before passing new nodeName for different pages be sure you created that node name in database.
 
 If you adding your first node name add `Name: commentsGrid/nodeNameYouWant/active Value: true ` under Realtime Database Root.
 
 For other node names that you will create add `Name: nodeNameYouWant/active Value: true` under `commentsGrid` .
 
-If you don't know how to do this see detailed [here.](https://github.com/TugayYaldiz/vue-comment-grid/blob/master/docs/creating-database-node-name.md) 
+If you don't know how to do this see detailed [here.](https://github.com/TugayYaldiz/vue-comment-grid/blob/master/docs/creating-database-node-name.md)
 
 ### Setting Up Database Rules
 
@@ -110,7 +110,7 @@ The default max user name length is "30" and default max comment length is "1000
 ## Usage
 
 ```vue
-<comment-grid 
+<comment-grid
   baseURL="https://your-app.firebaseio.com"
   apiKey="your-api-key"
   nodeName="nodeNameThatYouCreated">
@@ -159,6 +159,8 @@ If you want to customizing component props take a look at [here.](https://tugayy
 I wanted to learn the CSS Grid and combine it with the technologies i already know. So i came up with this idea. I loved CSS Grid so much and definitely recommend you to use it.
 
 Demo: https://tugayyaldiz.github.io/vue-comment-grid
+
+Demo Video: https://www.youtube.com/watch?v=hp8AMCitHT0
 
 ## License
 

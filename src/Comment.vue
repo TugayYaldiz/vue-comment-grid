@@ -221,15 +221,15 @@
       userName: String,
       nodeUserId: String,
       commentBackgroundColor: {
-        teype: String,
+        type: String,
         default: "white"
       },
       commentTextColor: {
-        teype: String,
+        type: String,
         default: "#1d2129"
       },
       userNameColor: {
-        teype: String,
+        type: String,
         default: "rgb(6, 177, 183)"
       },
       show: {

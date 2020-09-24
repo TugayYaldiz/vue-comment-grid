@@ -47,8 +47,8 @@
             ></textarea>
             <button aria-label="Send" v-if="requestLoading"><div class="requestLoading"></div></button>
             <button @click="addComment" aria-label="Send" v-else>Send</button>
-            <div class="remainingLetter" :style="{ background: remainigLetter<0 ? 'rgba(255, 82, 82,1)' :'rgba(42, 94, 190, 1)'}">
-              <span>{{remainigLetter}}</span>
+            <div class="remainingLetter" :style="{ background: remainingLetter<0 ? 'rgba(255, 82, 82,1)' :'rgba(42, 94, 190, 1)'}">
+              <span>{{remainingLetter}}</span>
             </div>
             <transition name="fade">
               <div class="alert" v-if="alert" :class="alertClass" :key="alertClass" style="align-self:start; margin-top: -5px;">
@@ -341,7 +341,7 @@
       }
     },
     computed: {
-      remainigLetter() {
+      remainingLetter() {
         return +this.maxCommentLength - this.newComment.length;
       },
       filterUserName() {

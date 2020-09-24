@@ -42,8 +42,8 @@
           ></textarea>
           <button aria-label="Update" v-if="requestLoading"><div class="requestLoading"></div></button>
           <button @click="update" aria-label="Update" v-else>Update</button>
-          <div class="remainingLetter" :style="{ background: remainigUpdateLetter<0 ? 'rgba(255, 82, 82,1)' :'rgba(42, 94, 190, 1)'}">
-            <span>{{remainigUpdateLetter}}</span>
+          <div class="remainingLetter" :style="{ background: remainingUpdateLetter<0 ? 'rgba(255, 82, 82,1)' :'rgba(42, 94, 190, 1)'}">
+            <span>{{remainingUpdateLetter}}</span>
           </div>
           <transition name="fade">
             <div class="alert" v-if="alert" :class="alertClass" :key="alertClass" style="align-self:start; margin-top: -5px; margin-bottom: 7px;">
@@ -94,7 +94,7 @@
               ></textarea>
               <button aria-label="Reply" v-if="requestLoading"><div class="requestLoading"></div></button>
               <button @click="reply" aria-label="Reply" v-else>Reply</button>
-              <div class="remainingLetter" :style="{ background: remainigLetter<0 ? 'rgba(255, 82, 82,1)' :'rgba(42, 94, 190, 1)'}"><span>{{remainigLetter}}</span></div>        
+              <div class="remainingLetter" :style="{ background: remainingLetter<0 ? 'rgba(255, 82, 82,1)' :'rgba(42, 94, 190, 1)'}"><span>{{remainingLetter}}</span></div>        
               <transition name="fade">
                 <div class="alert" v-if="alert" :class="alertClass" :key="alertClass" style="align-self:start; margin-top: -5px;">
                   <div>{{alertMessage}}</div>
@@ -649,10 +649,10 @@
       viewWidth() {
         return this.outerWidth;
       },
-      remainigLetter() {
+      remainingLetter() {
         return +this.maxCommentLength - this.replyMessage.length;
       },
-      remainigUpdateLetter() {
+      remainingUpdateLetter() {
         return +this.maxCommentLength - this.updateMessage.length;
       },
       getTimeDiff() {
